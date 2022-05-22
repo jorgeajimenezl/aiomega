@@ -6,8 +6,8 @@ with open("aiomega/__init__.py", "r") as fd:
         r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]', fd.read(), re.MULTILINE
     ).group(1)
 
-with open("requirements.txt", "r") as file:
-    INSTALL_REQUIRES = file.readlines()
+# with open("requirements.txt", "r") as file:
+#     INSTALL_REQUIRES = file.readlines()
 
 with open("README.md") as readme:
     setup(
@@ -31,7 +31,7 @@ with open("README.md") as readme:
             "Programming Language :: Python :: 3.10",
         ],
         keywords=["mega", "client", "internet", "download", "async"],
-        install_requires=INSTALL_REQUIRES,
+        install_requires=[],
         packages=find_packages(),
         package_data={
             "megasdk": ["megasdk/libmega.so", "megasdk/_mega.so"],
