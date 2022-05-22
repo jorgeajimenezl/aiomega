@@ -1,4 +1,5 @@
 set -e
+export PYTHONWARNINGS="ignore"
 cd sdk
 
 echo "Configuring sdk"
