@@ -38,16 +38,16 @@ jobs:
         autoconf libtool libcurl4-openssl-dev \
         libsodium-dev libssl-dev libcrypto++-dev libc-ares-dev \
         libsqlite3-dev libfreeimage-dev swig libboost-all-dev \
-        libpthread-stubs0-dev zlib1g-dev
-
-    - name: Prepare enviroment
-      run: |        
-        sh configure.sh  
+        libpthread-stubs0-dev zlib1g-dev    
 
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install build
+        pip install build distutils wheel
+
+    - name: Prepare enviroment
+      run: |        
+        sh configure.sh
 
     - name: Build package
       run: python -m build
