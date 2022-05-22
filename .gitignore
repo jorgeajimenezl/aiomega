@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 
+aiomega/megasdk
 aiomega/__main__.py
 
 # VSCode

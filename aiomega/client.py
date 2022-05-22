@@ -17,7 +17,7 @@ from typing import (
     Union,
     Tuple,
 )
-from mega import (
+from .megasdk import (
     MegaApi,
     MegaRequestListener,
     MegaTransferListener,

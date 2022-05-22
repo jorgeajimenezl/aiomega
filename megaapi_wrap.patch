@@ -1,0 +1,54 @@
+--- megaapi_wrap.cpp	2022-05-22 14:33:12.889218137 -0400
++++ /disk/megaapi_wrap.cpp	2022-05-22 11:31:32.392223000 -0400
+@@ -16,6 +16,7 @@
+ #define SWIG_DIRECTORS
+ #define SWIG_PYTHON_THREADS
+ #define SWIG_PYTHON_DIRECTOR_NO_VTABLE
++// #define SWIG_PYTHON_STRICT_BYTE_CHAR
+ 
+ 
+ #ifdef __cplusplus
+@@ -3394,6 +3395,25 @@
+   return info;
+ }
+ 
++SWIGINTERNINLINE PyObject *
++SWIG_BytesFromCharPtrAndSize(const char* carray, size_t size)
++{
++  if (carray) {
++    if (size > INT_MAX) {
++      swig_type_info* pchar_descriptor = SWIG_pchar_descriptor();
++      return pchar_descriptor ? 
++	SWIG_InternalNewPointerObj(const_cast< char * >(carray), pchar_descriptor, 0) : SWIG_Py_Void();
++    } else {
++#if PY_VERSION_HEX >= 0x03000000
++      return PyBytes_FromStringAndSize(carray, static_cast< Py_ssize_t >(size));
++#else
++      return PyString_FromStringAndSize(carray, static_cast< Py_ssize_t >(size));
++#endif
++    }
++  } else {
++    return SWIG_Py_Void();
++  }
++}
+ 
+ SWIGINTERNINLINE PyObject *
+ SWIG_FromCharPtrAndSize(const char* carray, size_t size)
+@@ -4124,7 +4144,7 @@
+   SWIG_PYTHON_THREAD_BEGIN_BLOCK;
+   {
+     swig::SwigVar_PyObject obj0;
+-    obj0 = SWIG_FromCharPtr((const char *)bitmapData);
++    obj0 = SWIG_BytesFromCharPtrAndSize((const char *)bitmapData, size);
+     swig::SwigVar_PyObject obj1;
+     obj1 = SWIG_From_size_t(static_cast< size_t >(size));
+     if (!swig_get_self()) {
+@@ -4556,7 +4576,7 @@
+     swig::SwigVar_PyObject obj1;
+     obj1 = SWIG_NewPointerObj(SWIG_as_voidptr(transfer), SWIGTYPE_p_mega__MegaTransfer,  0 );
+     swig::SwigVar_PyObject obj2;
+-    obj2 = SWIG_FromCharPtr((const char *)buffer);
++    obj2 = SWIG_BytesFromCharPtrAndSize((const char *)buffer, size);
+     swig::SwigVar_PyObject obj3;
+     obj3 = SWIG_From_size_t(static_cast< size_t >(size));
+     if (!swig_get_self()) {

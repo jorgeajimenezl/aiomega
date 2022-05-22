@@ -33,4 +33,8 @@ with open("README.md") as readme:
         keywords=["mega", "client", "internet", "download", "async"],
         install_requires=INSTALL_REQUIRES,
         packages=find_packages(),
+        package_data={
+            "megasdk": ["megasdk/libmega.so", "megasdk/_mega.so"],
+        },
+        include_package_data=True
     )
