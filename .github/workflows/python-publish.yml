@@ -33,7 +33,7 @@ jobs:
 
     - name: Install Mega SDK enviroment
       run: |
-        apt-get install -y wget curl pv jq \
+        sudo apt-get install -y wget curl pv jq \
         ffmpeg locales unzip mediainfo git make g++ gcc automake \
         autoconf libtool libcurl4-openssl-dev \
         libsodium-dev libssl-dev libcrypto++-dev libc-ares-dev \
