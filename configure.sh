@@ -1,3 +1,4 @@
+set -e
 cd sdk
 
 echo "Configuring sdk"
