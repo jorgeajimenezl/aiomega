@@ -38,12 +38,12 @@ jobs:
         autoconf libtool libcurl4-openssl-dev \
         libsodium-dev libssl-dev libcrypto++-dev libc-ares-dev \
         libsqlite3-dev libfreeimage-dev swig libboost-all-dev \
-        libpthread-stubs0-dev zlib1g-dev    
+        libpthread-stubs0-dev zlib1g-dev python3-distutils 
 
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install build distutils wheel
+        pip install build
 
     - name: Prepare enviroment
       run: |        
