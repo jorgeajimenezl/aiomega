@@ -43,7 +43,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m ensurepip --default-pip
-        pip install build setuptools
+        pip install build setuptools wheel
 
     - name: Prepare enviroment
       run: |        
