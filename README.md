@@ -42,3 +42,4 @@ asyncio.run(main())
 [MIT License](./LICENSE)
 
 ## Author
+This program was deverloped by Jorge Alejandro Jiménez Luna <<jorgeajimenezl17@gmail.com>>

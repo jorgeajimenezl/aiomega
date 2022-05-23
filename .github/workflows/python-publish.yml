@@ -38,7 +38,7 @@ jobs:
         autoconf libtool libcurl4-openssl-dev \
         libsodium-dev libssl-dev libcrypto++-dev libc-ares-dev \
         libsqlite3-dev libfreeimage-dev swig libboost-all-dev \
-        libpthread-stubs0-dev zlib1g-dev python3-distutils 
+        libpthread-stubs0-dev zlib1g-dev python3-distutils libraw-dev libraw-bin
 
     - name: Install dependencies
       run: |
