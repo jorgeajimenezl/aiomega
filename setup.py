@@ -63,6 +63,7 @@ with open("README.md") as readme:
         install_requires=[],
         packages=find_packages(),
         include_package_data=True,
+        platforms=["Linux"],
         ext_modules=[
             Extension(
                 name="_mega",
