@@ -38,7 +38,10 @@ jobs:
         autoconf libtool libcurl4-openssl-dev \
         libsodium-dev libssl-dev libcrypto++-dev libc-ares-dev \
         libsqlite3-dev libfreeimage-dev swig libboost-all-dev \
-        libpthread-stubs0-dev zlib1g-dev python3-distutils libraw-dev libraw-bin
+        libpthread-stubs0-dev zlib1g-dev python3-distutils \
+        libraw-dev libraw-bin libuv1 libuv1-dev libavcodec-dev \
+        libavcodec58 libavformat-dev libavformat58 libavutil-dev \
+        libavutil56 libswscale-dev libswscale5
 
     - name: Install dependencies
       run: |
