@@ -10,7 +10,7 @@ with open("aiomega/__init__.py", "r") as fd:
 #     INSTALL_REQUIRES = file.readlines()
 
 static_libraries = ["mega"]
-static_lib_dir = "./sdk/src/.libs"
+static_lib_dir = "sdk/src/.libs"
 libraries = [
     "z",
     "ssl",
@@ -67,7 +67,7 @@ with open("README.md") as readme:
             Extension(
                 name="_mega",
                 sources=["sdk/bindings/python/megaapi_wrap.cpp"],
-                include_dirs=["/usr/local/include", "./sdk/include"],
+                include_dirs=["/usr/local/include", "sdk/include"],
                 libraries=libraries,
                 library_dirs=library_dirs,
                 extra_objects=extra_objects,
