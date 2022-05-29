@@ -208,7 +208,8 @@ class Mega(object):
         exc_val: Optional[BaseException],
         exc_tb: Optional[TracebackType],
     ) -> None:
-        await self.logout()
+        if self.is_logged_in():
+            await self.logout()
 
     async def _request(self, func: Callable[[Any], None], *args) -> MegaRequest:
         listener = _RequestListener()
