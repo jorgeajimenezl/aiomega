@@ -34,10 +34,10 @@ jobs:
     - name: Install Mega SDK enviroment
       run: |
         sudo apt-get install -y wget curl pv jq \
-        ffmpeg locales unzip mediainfo git make g++ gcc automake \
+        locales unzip mediainfo git make g++ gcc automake \
         autoconf libtool libcurl4-openssl-dev \
         libsodium-dev libssl-dev libcrypto++-dev libc-ares-dev \
-        swig libboost-all-dev libpthread-stubs0-dev zlib1g-dev \
+        swig libpthread-stubs0-dev zlib1g-dev \
         python3-distutils
 
     - name: Install dependencies
