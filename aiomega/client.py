@@ -159,6 +159,10 @@ class _TransferStreamingListener(_TransferListener):
 
 
 class Mega(object):
+    """
+    Mega.nz async client
+    """
+
     def __init__(
         self,
         app_key: str,
@@ -169,6 +173,30 @@ class Mega(object):
         http_only: bool = False,
         **kwargs,
     ) -> None:
+        """
+        Constructor
+
+        Parameters:
+            app_key (``str``):
+                AppKey of your application You can generate your AppKey for free here: https://mega.nz/#sdk.
+
+            base_path (``str``, *optional*):
+                Base path to store the local cache If you pass `None` to this parameter, the SDK won't use any local cache.
+            
+            user_agent (``str``, *optional*):
+                User agent to use in network requests If you pass `None` to this parameter, a default user agent will be used.
+
+            proxy (``Dict[str, str]``, *optional*):
+                Proxy dictionary. Structure: { 'url': ..., 'username': ..., 'password': ... }.
+
+            http_only (``bool``):
+                True to use HTTPS communications only.
+
+                The default behavior is to use HTTP for transfers and the persistent connection to wait for external events. Those communications don't require HTTPS because all transfer data is already end-to-end encrypted and no data is transmitted over the connection to wait for events (it's just closed when there are new events).
+
+                This feature should only be enabled if there are problems to contact MEGA servers through HTTP because otherwise it doesn't have any benefit and will cause a higher CPU usage.
+        """
+
         self.api = MegaApi(app_key, base_path, user_agent)
 
         # Push requests
@@ -183,7 +211,8 @@ class Mega(object):
             p.setCredentials(proxy.get("username", None), proxy.get("password", None))
             self.api.setProxySettings(p)
 
-        self.api.useHttpsOnly(http_only)
+        if http_only:
+            self.api.useHttpsOnly(http_only)
 
     def __enter__(self) -> None:
         raise TypeError("Use async with instead")
