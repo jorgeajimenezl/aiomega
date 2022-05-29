@@ -17,6 +17,25 @@ $ git clone https://github.com/jorgeajimenezl/aiomega.git
 $ cd aiomega
 $ pip install -e .
 ``` -->
+## Build from source
+### Dependencies
++ cURL (`libcurl4-openssl-dev`, `libcurl-devel`), compiled with `--enable-ssl`
++ c-ares (`libc-ares-dev`, `libcares-devel`, `c-ares-devel`)
++ OpenSSL (`libssl-dev`, `openssl-devel`)
++ Crypto++ (`libcrypto++-dev`, `libcryptopp-devel`)
++ zlib (`zlib1g-dev`, `zlib-devel`)
++ pthread
+
+### Build
+To build this package from source open the terminal and write:
+
+```shell
+$ git clone https://github.com/jorgeajimenezl/aiomega.git
+$ cd aiomega
+$ sh configure.sh
+```
+
+Then, to install it write `pip install -e .`
 
 ## Getting started
 ```python
