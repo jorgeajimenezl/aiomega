@@ -49,9 +49,7 @@ async def main():
         async def progress(c, t, s):
             print(f"{c} bytes / {t} bytes. Speed: {s} bytes/sec")
 
-        await client.download_file('/file', 
-                                    '/path/to/file',
-                                    progress=progress)
+        await client.download('/file', '/path/to/file', progress=progress)
 
 asyncio.run(main())
 ```
