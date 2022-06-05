@@ -17,6 +17,7 @@ libraries = [
     "crypto",
     "cryptopp",
     "sodium",
+    "sqlite3",
     "cares",
     "curl",
     "dl",
@@ -65,7 +66,7 @@ with open("README.md") as readme:
                 libraries=libraries,
                 library_dirs=library_dirs,
                 extra_objects=extra_objects,
-                extra_link_args=["-pthread"],
+                extra_link_args=["-pthread", "-fopenmp"],
             )
         ],
     )

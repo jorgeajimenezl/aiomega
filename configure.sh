@@ -5,8 +5,8 @@ cd sdk
 echo "Configuring sdk"
 sh autogen.sh
 ./configure --enable-python --with-python3 --without-freeimage --disable-examples \
-            --without-sqlite --disable-shared --enable-static --without-libuv \
-            --without-libraw --without-ffmpeg
+            --disable-shared --enable-static --without-libuv --without-libraw \
+            --without-ffmpeg
 
 echo "Compiling sdk"
 make

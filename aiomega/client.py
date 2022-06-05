@@ -512,8 +512,8 @@ class Mega(object):
         node = await self.get_node(node)
         transfer = await self._transfer(
             self.api.startDownload,
-            local_path,
             node,
+            local_path,
             progress=progress,
             progress_args=progress_args,
         )
