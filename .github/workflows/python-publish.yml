@@ -18,7 +18,6 @@ permissions:
 
 jobs:
   deploy:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -37,7 +36,7 @@ jobs:
         locales unzip mediainfo git make g++ gcc automake \
         autoconf libtool libcurl4-openssl-dev \
         libsodium-dev libssl-dev libcrypto++-dev libc-ares-dev \
-        swig libpthread-stubs0-dev zlib1g-dev \
+        swig libpthread-stubs0-dev zlib1g-dev libsqlite3-dev \
         python3-distutils
 
     - name: Install dependencies
