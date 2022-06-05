@@ -13,6 +13,7 @@ make
 
 echo "Patching sdk generated python files"
 patch bindings/python/megaapi_wrap.cpp ../megaapi_wrap.patch
+patch bindings/python/mega.py ../mega.patch
 make
 
 echo "Build python mega sdk package"

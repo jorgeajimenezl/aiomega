@@ -57,3 +57,9 @@ jobs:
       with:
         user: __token__
         password: ${{ secrets.PYPI_API_TOKEN }}
+
+    - name: Archive package
+      uses: actions/upload-artifact@v3
+      with:
+        name: aiomega-wheels
+        path: dist/*.whl

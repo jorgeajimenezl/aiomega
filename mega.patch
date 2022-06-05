@@ -1,0 +1,12 @@
+@@ -9,10 +9,7 @@
+     raise RuntimeError("Python 2.7 or later required")
+ 
+ # Import the low-level C/C++ module
+-if __package__ or "." in __name__:
+-    from . import _mega
+-else:
+-    import _mega
++import _mega
+ 
+ try:
+     import builtins as __builtin__
