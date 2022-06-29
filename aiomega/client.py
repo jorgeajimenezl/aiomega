@@ -247,7 +247,7 @@ class Mega(object):
 
         code = listener.error.getErrorCode()
         if code != MegaError.API_OK:
-            raise MegaRequestError(code, listener.error.getErrorString())
+            raise MegaRequestError(code, listener.error.toString())
         return listener.request
 
     async def _transfer(
@@ -263,7 +263,7 @@ class Mega(object):
 
         code = listener.error.getErrorCode()
         if code != MegaError.API_OK:
-            raise MegaRequestError(code, listener.error.getErrorString())
+            raise MegaRequestError(code, listener.error.toString())
         return listener.transfer
 
     async def get_node(self, node: Union[int, str, MegaNode]) -> MegaNode:
@@ -615,7 +615,7 @@ class Mega(object):
 
         code = listener.error.getErrorCode()
         if code != MegaError.API_OK:
-            raise MegaRequestError(code, listener.error.getErrorString())
+            raise MegaRequestError(code, listener.error.toString())
 
     async def share(
         self,
